@@ -61,15 +61,16 @@ const Card = ({ products }) => {
                                 <div className="col-8">
                             
                                 {
-                                     cart.cart.find(item => item.id === prod.id) 
-                                      ? <div className='d-flex'>
-                                        <button type="button" className="btn btn-danger btn-sm" onClick={()=>handleIncrement(prod.id)}>+</button>
-                                        <input type="number" value={cart.cart.find(item => item.id === prod.id).qty} className="ms-1 me-1" style={{width:'35px'}}  />
-                                        <button type="button" value={cart.cart.find(item => item.id === prod.id).qty} className="btn btn-sm btn-danger" onClick={()=>handleDecrement(prod.id)}> -</button>
-                                      </div> 
-                                         
-                                      :
-                                       <a href="#" className="btn btn-dark w-100 p-1 rounded-0 text-warning" id={prod.id} onClick={()=>handleCartItem(prod)}>ADD TO CART</a>
+                                     cart.cart.find(item => item.id === prod.id && item.qty > 0) 
+                                      ? (   <div className='d-flex'>
+                                                <button type="button" className="btn btn-danger btn-sm" onClick={()=>handleIncrement(prod.id)}>+</button>
+                                                <input type="number" value={cart.cart.find(item => item.id === prod.id).qty} className="ms-1 me-1" style={{width:'35px'}}  />
+                                                <button type="button" value={cart.cart.find(item => item.id === prod.id).qty} className="btn btn-sm btn-danger" onClick={()=>handleDecrement(prod.id)}> -</button>
+                                           </div>
+                                        ) :(
+
+                                            <a href="#" className="btn btn-dark w-100 p-1 rounded-0 text-warning" id={prod.id} onClick={()=>handleCartItem(prod)}>ADD TO CART</a>
+                                        )
                                 }
                                     
                                 </div>
