@@ -46,7 +46,7 @@ const Card = ({ products }) => {
                                             <i className="bi bi-star-fill text-warning"></i>
                                             <i className="bi bi-star-fill text-warning"></i>
                                             <i className="bi bi-star-fill text-warning"></i>
-                                            (123)
+                                            (1234)
                                         </p>
                                     </div>
                                     <div className="col-2">
